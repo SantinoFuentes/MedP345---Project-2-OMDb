@@ -35,6 +35,7 @@ function displayMovieList(movies){
         else 
             moviePoster = "image_not_found.png";
 
+//what is prsent in the list of movies from search bar. list
         movieListItem.innerHTML = `
         <div class = "search-item-thumbnail">
             <img src = "${moviePoster}">
@@ -44,11 +45,13 @@ function displayMovieList(movies){
             <p>${movies[idx].Year}</p>
         </div>
         `;
-        searchList.appendChild(movieListItem);
+        searchList.appendChild(movieListItem);/*appendChild() is used to 
+        add a new movie search result item to the search list.*/
     }
     loadMovieDetails();
 }
 
+//gets all the movie search result items and sets up an event listener for each one.
 function loadMovieDetails(){
     const searchListMovies = searchList.querySelectorAll('.search-list-item');
     searchListMovies.forEach(movie => {
@@ -86,7 +89,8 @@ function displayMovieDetails(details){
     `;
 }
 
-
+/* listens for clicks. If a user clicks anywhere on the page except for the search box, 
+the search list is hidden.*/
 window.addEventListener('click', (event) => {
     if(event.target.className != "form-control"){
         searchList.classList.add('hide-search-list');
